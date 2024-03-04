@@ -6,39 +6,6 @@ final Map<String, Command> commands = {
   'x': Multiplication(),
   '÷': Division(),
 };
-final List<String> operators = [
-  '+',
-  '-',
-  'x',
-  '÷'
-];
-final List<String> utils = [
-  'Enter',
-  '←',
-  'Pop',
-  'AC',
-  'Undo',
-];
-final List<String> buttons = [
-  'AC',
-  'Pop',
-  'Undo',
-  '←',
-  '7',
-  '8',
-  '9',
-  '÷',
-  '4',
-  '5',
-  '6',
-  'x',
-  '1',
-  '2',
-  '3',
-  '-',
-  '0',
-  '.',
-  'Enter',
-  '+',
-];
 
+final List<String> operators = ['+', '-', 'x', '÷'];
+final List<String> utilityOperations = ['Enter', '+/-', 'AC', '←', 'Pop', 'Undo'];
