@@ -47,10 +47,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       if (calculator.stack.length >= 2) {
         setOperation(buttonText);
       }
-    } else if (buttonText == '.') {
-      if (!currentNumber.contains('.')) {
-        appendNumber(buttonText);
-      }
+    } else if (buttonText == '.' || buttonText == ',') {
+      appendNumber(buttonText);
     } else if (buttonText == 'Enter') {
       if (currentNumber.isNotEmpty) {
         enterPressed();
@@ -59,6 +57,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appendNumber(buttonText);
     }
   }
+
 
 
 
@@ -138,8 +137,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
   void appendNumber(String number) {
     setState(() {
-      if (currentNumber == '0') {
-        currentNumber = number;
+      if (number == '.' || number == ',') {
+        if (!currentNumber.contains('.') && !currentNumber.contains(',')) {
+          currentNumber += '.';
+        }
       } else {
         currentNumber += number;
       }
@@ -261,15 +262,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CalculatorButton(
-                text: 'Enter',
-                onPressed: () => onButtonPressed('Enter'),
-              ),
-            ],
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CalculatorButton(
+            text: ',',
+            onPressed: () => onButtonPressed(','),
           ),
+          CalculatorButton(
+            text: 'Enter',
+            onPressed: () => onButtonPressed('Enter'),
+          ),
+        ],
+      ),
         ],
       ),
     );
