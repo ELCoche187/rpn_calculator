@@ -21,14 +21,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({Key? key}) : super(key: key);
 
   @override
   _CalculatorScreenState createState() => _CalculatorScreenState();
 }
-
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
   String displayText = '0';
@@ -40,7 +38,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       clearDisplay();
     } else if (buttonText == '=') {
       calculateResult();
-    } else if (buttonText == '+' || buttonText == '-' || buttonText == 'x' || buttonText == '/') {
+    } else if (buttonText == '+' ||
+        buttonText == '-' ||
+        buttonText == 'x' ||
+        buttonText == '/') {
       if (currentNumber.isNotEmpty) {
         enterPressed();
       }
@@ -57,12 +58,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appendNumber(buttonText);
     }
   }
-
-
-
-
-
-
 
   void clearDisplay() {
     setState(() {
@@ -262,19 +257,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               ),
             ],
           ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CalculatorButton(
-            text: ',',
-            onPressed: () => onButtonPressed(','),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CalculatorButton(
+                text: ',',
+                onPressed: () => onButtonPressed(','),
+              ),
+              CalculatorButton(
+                text: 'Enter',
+                onPressed: () => onButtonPressed('Enter'),
+              ),
+            ],
           ),
-          CalculatorButton(
-            text: 'Enter',
-            onPressed: () => onButtonPressed('Enter'),
-          ),
-        ],
-      ),
         ],
       ),
     );
