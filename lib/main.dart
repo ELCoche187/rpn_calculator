@@ -47,6 +47,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       if (calculator.stack.length >= 2) {
         setOperation(buttonText);
       }
+    } else if (buttonText == '.') {
+      if (!currentNumber.contains('.')) {
+        appendNumber(buttonText);
+      }
     } else if (buttonText == 'Enter') {
       if (currentNumber.isNotEmpty) {
         enterPressed();
@@ -55,6 +59,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       appendNumber(buttonText);
     }
   }
+
+
 
 
 
